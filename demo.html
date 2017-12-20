@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Demo</title>
+<meta name="description" content="Demo del Illyum Angular Provider para Local Storage">
+<meta name="author" content="Francisco Javier Banos Lemoine">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<link href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css" rel="stylesheet">
+<link href="demo.css" rel="stylesheet">
+    
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<body onload="prettyPrint()">
+
+<div class="container" ng-app="DemoApp">
+
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Illyum Angular Local Storage</a>
+    </div>
+  </div>
+
+  <div class="hero-unit">
+    
+    <h2>Demo</h2>
+
+    <p>Illyum Angular Provider Local Storage provee un mecanismo para tener acceso al almacenamiento local del navegador con las siguientes características funcionales:</p>
+    <ul>
+      <li>Permite almacenar elementos e identificarlos por medio de una llave (key). Los elementos pueden ser cadenas de texto, valores enteros o punto flotante, arreglos y objetos.</li>
+      <li>Permite recuperar el valor de un elemento por medio de su llave (key).</li>
+      <li>Permite borrar un elemento por medio de su llave (key).</li>
+      <li>Permite recuperar las llaves (keys) de los elementos almacenados en el Local Storage.</li>
+    </ul>
+
+    <div ng-controller="DemoController">
+      <div class="row">
+        <input type="text" ng-model="key" placeholder="Llave del elemento..." />
+        <input type="text" ng-model="value" placeholder="Valor del elemento..." />
+        <button ng-click="putItem()">Put Item</button>
+        <button ng-click="getItem()">Get Item</button>
+        <button ng-click="deleteItem()">Delete Item</button>
+        <button ng-click="getKeys()">Get Keys</button>
+      </div>
+      <div class="row">
+        <ul ng-repeat="key in keys">
+          <li>{{key}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <h3>Uso</h3>
+
+  <h6>Dependencias:</h6>
+  <ul>
+    <li><code>Angular JS</code> <small><a href="http://angularjs.org/">http://angularjs.org/</a></small></li>
+    <li><code>Illyum Angular Local Storage Module</code><small><a href="illyum-ng/providers/dist/illyum-ng-local-storage-provider.js">illyum-ng-local-storage-provider.js</a></small></li>
+  </ul>
+
+  <h6>Ejemplo Java Script</h6>
+  <pre class="prettyprint lang-js">
+  var controller = function(illyumLocalStorage) {
+
+  // Para guardar un elemento en el Local Storage
+  illyumLocalStorage.putItem('the key goes here', 'the value goes here');
+
+  // Para recuperar un elemento almacenado en el Local Storage
+  var value = illyumLocalStorage.getItem('the key goes here');
+
+  // Para borrar un elemento del Local Storage
+  illyumLocalStorage.deleteItem('the key goes here');
+
+  // Para obtener la lista de las llaves almacenadas en el Local Storage
+  var keysInTheLocalStorage = illyumLocalStorage.getKeys();
+  
+}</pre>
+
+  <h3>Guía del programador</h3>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Método</th>
+        <th>Argumentos</th>
+        <th>Descripción</th>
+        <th>Valor de retorno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>putItem</code></td>
+        <td><small>key, value</small></td>
+        <td>Guarda un elemento (key-value o llave-valor) en el Local Storage</td>
+        <td>Ninguno</td>
+      </tr>
+      <tr>
+        <td><code>getItem</code></td>
+        <td><small>key (llave)</small></td>
+        <td>Recupera un elemento almacenado en el Local Storage</td>
+        <td>El valor almacenado</td>
+      </tr>
+      <tr>
+        <td><code>deleteItem</code></td>
+        <td><small>key (llave)</small></td>
+        <td>Borra un elemento key-value (o llave-valor) del Local Storage</td>
+        <td>Ninguno</td>
+      </tr>
+      <tr>
+        <td><code>getKeys</code></td>
+        <td class="muted">Ninguno</td>
+        <td>Recupera las llaves de los elementos almacenados en el Local Storage</td>
+        <td>Un arreglo Java Script</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- END DEMO -->
+    
+<!-- JAVASCRIPT -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+<script src="illyum-ng/providers/dist/illyum-ng-local-storage-provider.min.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>

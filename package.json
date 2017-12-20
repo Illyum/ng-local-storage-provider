@@ -1,0 +1,43 @@
+{
+  "name": "illyum-ng-local-storage-provider",
+  "preferGlobal": true,
+  "version": "0.1.0",
+  "author": "franl@illyum.com",
+  "description": "A light local storage provider for Angular",
+  "contributors": [
+    {
+      "name": "Francisco Javier Banos Lemoine",
+      "email": "franl@illyum.com"
+    }
+  ],
+  "bin": {
+    "package-name": "./bin/illyum-ng-local-storage-provider"
+  },
+  "scripts": {
+    "start": "node ./bin/illyum-ng-local-storage-provider",
+    "test": "vows --spec --isolate",
+    "predeploy": "echo Before deploying...",
+    "postdeploy": "echo After deploying..."
+  },
+  "main": "./lib/illyum-ng-local-storage-provider",
+  "repository": {
+    "type": "git",
+    "url": "Not defined"
+  },
+  "keywords": [],
+  "dependencies": {},
+  "analyze": false,
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jasmine": "^1.1.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1"
+  },
+  "bundledDependencies": [],
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  }
+}
